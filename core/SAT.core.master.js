@@ -6,10 +6,9 @@ export const SAT_MASTER = {
     init() {
         return {
             status: "SAT MASTER ONLINE",
+            vector: VECTOR_3D(1, 1, 1),
             universe: GEOUNIVERSE(1),
-            orbit: ORBIT_CORE(1),
-            vector: VECTOR_3D(1,1,1)
+            orbit: ORBIT_CORE(1)
         };
     }
 };
-
