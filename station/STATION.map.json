@@ -1,8 +1,14 @@
-{
-  "stations": [
-    { "id": "TMP-ROOT", "path": "D:/TMP/root" },
-    { "id": "TMP-DATA", "path": "D:/TMP/data" },
-    { "id": "TMP-BACKUP", "path": "D:/TMP/backup" }
-  ]
-}
+import fs from "fs";
 
+export function STATION_MAP_GENERATE(basePath) {
+    const folders = fs.readdirSync(basePath).filter(f => fs.statSync(basePath + "/" + f).isDirectory());
+    const stations = folders.map((folder, i) => ({
+        id: `STATION-${i}`,
+        path: `${basePath}/${folder}`,
+        type: "folder",
+        layer: "auto",
+        position: { x: i * 10, y: i * 5, z: 0 }
+    }));
+    fs.writeFileSync("./STATION.map.json", JSON.stringify({ stations }, null, 2));
+    return { status: "SAT-STATION-MAP-GENERATED", count: stations.length };
+}
