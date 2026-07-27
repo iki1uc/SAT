@@ -24,6 +24,11 @@ a { color:#6cf; text-decoration:none; font-weight:bold; }
 <script src="IDneutral.js"></script>
 <script src="IDpook.js"></script>
 
+<!-- SAT MODULES -->
+<script type="module" src="../SAT/core/SAT.master.js"></script>
+<script type="module" src="../SAT/core/SAT.universe.js"></script>
+<script type="module" src="../SAT/core/SAT.deepspacemind.js"></script>
+
 </head>
 
 <body>
@@ -61,6 +66,12 @@ a { color:#6cf; text-decoration:none; font-weight:bold; }
 <div class="block">
     <div class="title">System‑Status</div>
     <pre id="system-status"></pre>
+</div>
+
+<!-- SAT STATUS -->
+<div class="block">
+    <div class="title">SAT‑Status</div>
+    <pre id="sat-status"></pre>
 </div>
 
 <script>
@@ -116,6 +127,34 @@ a { color:#6cf; text-decoration:none; font-weight:bold; }
 
     document.getElementById("system-status").innerText =
         `Zeit: ${tem.timestamp}\nKernel: ${run8.run}\nSystem: OK`;
+
+
+    /* -------------------------------
+       SAT MASTER + UNIVERSE + DEEPSPACEMIND
+    --------------------------------*/
+    const { SAT_MASTER } = await import("../SAT/core/SAT.master.js");
+    const { SAT_UNIVERSE } = await import("../SAT/core/SAT.universe.js");
+    const { SAT_DEEPSPACEMIND } = await import("../SAT/core/SAT.deepspacemind.js");
+
+    const satMaster = SAT_MASTER();
+    const satUniverse = SAT_UNIVERSE();
+    const deep = SAT_DEEPSPACEMIND();
+
+    const out = `
+SAT MASTER STATUS
+-----------------
+${JSON.stringify(satMaster, null, 2)}
+
+SAT UNIVERSE STATUS
+-------------------
+${JSON.stringify(satUniverse, null, 2)}
+
+DEEPSPACEMIND CONNECTOR
+-----------------------
+${JSON.stringify(deep, null, 2)}
+`;
+
+    document.getElementById("sat-status").innerText = out;
 
 })();
 </script>
