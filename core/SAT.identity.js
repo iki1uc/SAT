@@ -4,4 +4,3 @@ export const SAT_IDENTITY = {
     version: "1.0",
     description: "SAT ist unsere eigene Tech-Sprache."
 };
-
