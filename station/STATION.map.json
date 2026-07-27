@@ -1,1 +1,8 @@
+{
+  "stations": [
+    { "id": "TMP-ROOT", "path": "D:/TMP/root" },
+    { "id": "TMP-DATA", "path": "D:/TMP/data" },
+    { "id": "TMP-BACKUP", "path": "D:/TMP/backup" }
+  ]
+}
 
