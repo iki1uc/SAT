@@ -1,18 +1,10 @@
-// ENGINE9 – Dreieck → Quadrat Transformation
-
-export function ENGINE9(a, b, c) {
+export function ENGINE9(f) {
+    const a = f + 1;
+    const b = f + 2;
+    const c = f + 3;
 
     const perimeter = a + b + c;
     const squareSide = perimeter / 4;
 
-    return {
-        engine: "ENGINE9",
-        axiom: "Dreieck → Quadrat Transformation",
-        triangle: { a, b, c },
-        square: {
-            side: squareSide,
-            area: squareSide * squareSide
-        },
-        status: "SAT-MORPH-PROCESSED"
-    };
+    return `ENGINE9 MORPH → triangle:${a},${b},${c} → squareSide:${squareSide.toFixed(2)}`;
 }
