@@ -1,13 +1,7 @@
-// ENGINE4 – Quadrat-Axiom (alle Seiten gleich, alle Winkel 90°)
+export function ENGINE4(f) {
+    const side = f + 1;
+    const area = side * side;
+    const diag = Math.sqrt(2) * side;
 
-export function ENGINE4(s) {
-    return {
-        engine: "ENGINE4",
-        axiom: "Alle Seiten gleich, alle Winkel 90°",
-        side: s,
-        perimeter: 4 * s,
-        area: s * s,
-        diagonal: Math.sqrt(2) * s,
-        status: "SAT-SQUARE-PROCESSED"
-    };
+    return `ENGINE4 SQUARE → side:${side} area:${area} diag:${diag.toFixed(2)}`;
 }
