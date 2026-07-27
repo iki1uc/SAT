@@ -1,7 +1,22 @@
-{
-  "universe": "SAT-SPACE",
-  "dimensions": ["B", "H", "T"],
-  "layers": [],
-  "stations": []
-}
+import { GEOUNIVERSE } from "../geo/GEOUniverse.js";
+import { GEO4D } from "../geo/GEO4D.js";
+import { GEO5D } from "../geo/GEO5D.js";
 
+import { ORBIT_CORE } from "../orbit/ORBIT.core.js";
+
+import { ENGINE12 } from "../engine/ENGINE12.js";
+
+import { STATION_CORE } from "../station/STATION.core.js";
+
+export function SAT_UNIVERSE() {
+
+    return {
+        universe: GEOUNIVERSE(1),
+        geo4d: GEO4D(2),
+        geo5d: GEO5D(3),
+        orbit: ORBIT_CORE(45),
+        engine: ENGINE12(12),
+        station: STATION_CORE("STATION-0"),
+        status: "SAT-UNIVERSE-READY"
+    };
+}
