@@ -1,15 +1,12 @@
-import { SAT_MASTER } from "./SAT.master.js";
-import { SAT_UNIVERSE } from "./SAT.universe.js";
+import { ENGINE_ALBERTUS } from "../engine/ENGINE.albertus.js";
 
 export function SAT_DEEPSPACEMIND() {
 
-    const master = SAT_MASTER();
-    const universe = SAT_UNIVERSE();
+    const albertus = ENGINE_ALBERTUS({ step: "argORG" });
 
     return {
         status: "DEEPSPACEMIND-LINKED",
-        master,
-        universe,
+        regulator: albertus,
         timestamp: Date.now()
     };
 }
